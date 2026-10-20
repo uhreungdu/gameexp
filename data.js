@@ -1,8 +1,18 @@
 // 2026-10-18 노션 「인상 깊은 게임들」에서 옮긴 기록. 수정 후 새로고침하면 반영됩니다.
 const doc=(title,id,type)=>({title,url:`https://drive.google.com/file/d/${id}/view`,type});
 const chaos=doc('에픽세븐 카오스게이트탐사 창작 콘텐츠 시스템 문서','1E8Csg7pZ-cKsxb36eCKg1oQjn1JkoMWI','창작 기획');
+// Display order for the planning documents section.
+const documentOrder = [
+  "1E8Csg7pZ-cKsxb36eCKg1oQjn1JkoMWI",
+  "1MhAv955kYV65zsPriqnFZQHV68x8Rk0x",
+  "1CRV6FUGzvXEwRTfxNH3uHBD-NdC-T-nq",
+  "15kuuNO5OTZlQvK_MSQGthNfKxOoRUXi1",
+  "1Q2bep_xifs0Tc7nfHaDRDWuhP69W-5JW",
+  "11nvHs37K1Dr4gQXe8CYg1Ba1jNG8Pu_8",
+  "14pzirkpXUBs5CNvMnWtKN-RYBO-sQXDN"
+].map(id => `https://drive.google.com/file/d/${id}/view`);
 const games=[
-{id:'gakumas',name:'학원 아이돌 마스터',en:'GAKUEN IDOLMASTER',page:'3f885058c5748059b8a1dfa313d6ee87',genres:['육성 시뮬레이션','턴제','로그라이트'],hours:1000,time:'1,000시간+',basis:'갤럭시 게임 런처',playing:true,group:['덱 빌딩','로그라이크'],title:'다음 플레이로 이어지는 메모리 시스템',intro:'스킬 카드로 덱을 구성해 아이돌을 육성하고 무대에서 1위를 노리는 덱빌딩 로그라이트 육성 시뮬레이션입니다.',body:'로그라이트 장르는 이번 플레이의 성과가 다음 플레이에 도움이 되는 구조가 특징인데 학원 아이돌마스터의 메모리 시스템은 이 특성을 잘 나타내는 시스템이라고 생각합니다. 프로듀스를 마치고 생성된 메모리로 다음 육성을 더 쉽게 하거나 더 높은 점수를 노릴 수 있어 반복 플레이의 동기가 됩니다. 여기에 더해 메모리는 다른 콘텐츠로 확장될 수 있는 구조를 갖추고 있어 육성에만 집중된 콘텐츠를 넘어 새로운 형식의 콘텐츠를 만들 수 있는 기반이 된다는 점에 관심이 갔습니다.',docs:[doc('학원 아이돌 메모리시스템 분석 문서','11nvHs37K1Dr4gQXe8CYg1Ba1jNG8Pu_8','시스템 분석')]},
+{id:'gakumas',name:'학원 아이돌 마스터',en:'GAKUEN IDOLMASTER',page:'3f885058c5748059b8a1dfa313d6ee87',genres:['육성 시뮬레이션','턴제','로그라이트'],hours:1000,time:'1,000시간+',basis:'갤럭시 게임 런처',playing:true,group:['덱 빌딩','로그라이크'],title:'다음 플레이로 이어지는 메모리 시스템',intro:'스킬 카드로 덱을 구성해 아이돌을 육성하고 무대에서 1위를 노리는 덱빌딩 로그라이트 육성 시뮬레이션입니다.',body:'로그라이트 장르는 이번 플레이의 성과가 다음 플레이에 도움이 되는 구조가 특징인데 학원 아이돌마스터의 메모리 시스템은 이 특성을 잘 나타내는 시스템이라고 생각합니다. 프로듀스를 마치고 생성된 메모리로 다음 육성을 더 쉽게 하거나 더 높은 점수를 노릴 수 있어 반복 플레이의 동기가 됩니다. 여기에 더해 메모리는 다른 콘텐츠로 확장될 수 있는 구조를 갖추고 있어 육성에만 집중된 콘텐츠를 넘어 새로운 형식의 콘텐츠를 만들 수 있는 기반이 된다는 점에 관심이 갔습니다.',docs:[doc('학원 아이돌 마스터 메모리 시스템 분석 문서','11nvHs37K1Dr4gQXe8CYg1Ba1jNG8Pu_8','시스템 분석')]},
 {id:'epic7',name:'에픽세븐',en:'EPIC SEVEN',page:'3f785058c57480d79b6fd6a46e7a0d2d',genres:['턴제','수집형 RPG'],hours:6000,time:'6,000시간+',basis:'갤럭시 게임런처',playing:true,group:['RPG'],title:'세팅의 폭이 넓은 장비 시스템',intro:'영웅을 수집해 4인 파티를 구성하고, 속성 상성과 스킬 조합으로 전투를 풀어가는 턴제 수집형 RPG입니다.',body:'에픽세븐의 장비는 6개 부위로 정해져 있지만 세트 효과와 장비 옵션에 따른 조합의 폭이 넓어 같은 캐릭터도 유저마다 다르게 세팅할 수 있습니다. 재미로 맞춘 세팅이 메타에 따라 주류가 되기도 하는 점에 끌렸습니다. 비슷한 시스템은 다른 게임에도 있지만 직접 맞춘 세팅을 아레나에서 실험하고 검증해볼 수 있다는 점에서 해당 시스템에 대한 재미를 느낄 수 있었습니다.',docs:[chaos]},
 {id:'eternal',name:'이터널 리턴',en:'ETERNAL RETURN',page:'3f885058c57480e19e51c774db3a6f0b',genres:['MOBA','배틀로얄','쿼터뷰'],hours:1945,time:'1,945시간+',basis:'스팀',playing:true,group:['전략 · 슈터'],title:'파밍 동선을 직접 설계하는 루트 시스템',intro:'쿼터뷰 시점의 배틀로얄 MOBA로 지역을 돌며 재료를 파밍하고 장비를 제작해 최후의 1팀을 가려내는 게임입니다.',body:'이터널 리턴의 루트 시스템은 원하는 장비를 만들기 위해 어느 지역에서 어떤 재료를 모을지에 대한 이동 경로를 미리 짜 두는 시스템입니다. 같은 장비를 제작하더라도 유저마다 더 효율적인 동선을 만들어 갈 수 있어 배틀로얄의 파밍 과정 자체를 전략적인 재미로 바꾼 점이 좋았습니다. 처음에는 진입 장벽이 될 수 있지만 유저들이 루트를 서로 공유하면서 연구를 즐기는 유저는 직접 만들고 그렇지 않은 유저는 검증된 루트를 가져다 쓸 수 있다는 점도 인상 깊었습니다.',docs:[]},
 {id:'dnf',name:'던전앤파이터',en:'DUNGEON & FIGHTER',page:'3f885058c57480b5ba39fe300e7ab89c',genres:['액션 RPG'],time:'2012년 ~ 현재',playing:true,group:['액션','RPG'],title:'3개 파티가 유기적으로 움직이는 레이드 콘텐츠',intro:'2D 도트 그래픽의 횡스크롤 액션 RPG로, 다양한 직업을 육성해 파티와 함께 던전을 공략하는 게임입니다.',body:'던전앤파이터의 레이드는 공격대가 3개의 파티로 나뉘어 각자 다른 던전에 들어가 맡은 역할을 수행하는 구조입니다. 한곳에 모여 보스를 상대하는 일반적인 레이드와 달리 공대장이 파티장들과 소통하며 전체 진행을 조율해야 합니다. 서로 다른 곳에 있지만 소통을 통해 유기적으로 움직여 공통의 목표를 달성한다는 점에서 큰 재미를 느꼈습니다.',docs:[doc('던전앤파이터 모험길라잡이 역기획서','1CRV6FUGzvXEwRTfxNH3uHBD-NdC-T-nq','역기획'),doc('던전앤파이터 아라드 연금술 이벤트 기획서','1MhAv955kYV65zsPriqnFZQHV68x8Rk0x','창작 기획'),doc('콘텐츠 배치 시스템 기획서','15kuuNO5OTZlQvK_MSQGthNfKxOoRUXi1','레퍼런스 기획'),doc('나혼자만레벨업 : 어 라이즈 길드 토벌전 콘텐츠 기획서','1Q2bep_xifs0Tc7nfHaDRDWuhP69W-5JW','레퍼런스 기획')]},

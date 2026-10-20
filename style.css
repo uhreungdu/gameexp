@@ -122,10 +122,10 @@ select { border: 0; background: transparent; color: #657384; font-size: 13.2px; 
 .document { display: flex; align-items: center; gap: 22px; padding: 21px 12px; border-bottom: 1px solid var(--line); transition: background .2s; }
 .document:hover { background: #f1f6fc; }
 .document-no { flex-shrink: 0; min-width: 2ch; font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; color: #72849a; }
-.document-name { display: flex; flex-direction: column; gap: 7px; flex: 1; font-size: 15.6px; font-weight: 500; }
+.document-name { display: flex; flex-direction: column; gap: 7px; flex: 1; min-width: 0; font-size: 15.6px; font-weight: 500; word-break: keep-all; overflow-wrap: anywhere; }
 .document-name small { font-size: 12px; color: #738197; font-weight: 400; }
-.document-type { font-size: 10.8px; color: #446d92; background: var(--pale); border: 1px solid #d1e1f0; border-radius: 3px; padding: 5px 8px; }
-.document-arrow { font-size: 20px; color: var(--accent); margin-left: 15px; }
+.document-visit { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: 40px; padding: 8px 14px; border: 1px solid var(--accent); border-radius: 4px; background: var(--accent); color: #fff; font-size: 13.2px; font-weight: 600; line-height: 1.5; white-space: nowrap; transition: background .2s; }
+.document:hover .document-visit,.document:focus-visible .document-visit { background: #2c6596; }
 .works-note { font-size: 12px; color: #7c8899; text-align: right; margin-top: 15px; }
 .closing { margin: 65px 0 0; padding: 45px 0; border-top: 1px solid var(--line); display: flex; gap: 24px; align-items: center; }
 .closing-icon { display: inline-flex; align-items: center; flex-shrink: 0; width: 44px; height: 44px; color: var(--blue); }
@@ -265,8 +265,7 @@ dialog::backdrop { background: #192535a6; backdrop-filter: blur(5px); }
   .works { padding-top: 35px; margin-top: 45px; }
   .document { gap: 14px; padding: 18px 4px; }
   .document-name { font-size: 14.4px; }
-  .document-type { font-size: 9.6px; max-width: 70px; text-align: center; flex-shrink: 0; }
-  .document-arrow { margin-left: 0; }
+  .document-visit { min-height: 40px; padding: 8px 10px; font-size: 12px; }
   .closing { margin-top: 40px; padding: 30px 0; gap: 15px; }
   .closing-icon { width: 34px; height: 34px; }
   .closing p { font-size: 16px; }

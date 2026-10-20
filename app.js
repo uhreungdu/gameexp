@@ -9,7 +9,7 @@ function imageHTML(g, lazy = false) {
   return src ? `<img ${lazy ? 'loading="lazy"' : ''} src="${escapeHTML(src)}" alt="${escapeHTML(g.name)} 커버">` : `<div class="cover-placeholder" aria-label="커버 이미지 없음"><span aria-hidden="true">${escapeHTML(g.name.slice(0, 2))}</span><small>PLAY NOTE</small></div>`;
 }
 function documentRows(items) {
-  return items.map((d, i) => `<a class="document" href="${escapeHTML(d.url)}" target="_blank" rel="noopener noreferrer"><span class="document-no">${String(i + 1).padStart(2, '0')}</span><span class="document-name"><span>${escapeHTML(d.title)}</span><small>${escapeHTML(d.game)}</small></span><span class="document-type">${escapeHTML(d.type)}</span><span class="document-arrow">↗</span></a>`).join('');
+  return items.map((d, i) => `<a class="document" href="${escapeHTML(d.url)}" target="_blank" rel="noopener noreferrer"><span class="document-no">${String(i + 1).padStart(2, '0')}</span><span class="document-name"><span>${escapeHTML(d.title)}</span><small>${escapeHTML(d.game)}</small></span><span class="document-visit">보러가기</span></a>`).join('');
 }
 function updateSummary() {
   $('#storage-warning').textContent = RecordStore.warning;
@@ -17,10 +17,13 @@ function updateSummary() {
   const list = allGames(), counts = [list.length, list.filter(g => g.playing).length];
   const documentMap = new Map();
   for (const g of list) for (const d of g.docs) {
-    if (documentMap.has(d.url)) documentMap.get(d.url).game += ' · ' + g.name;
-    else documentMap.set(d.url, {...d, game: g.name});
+    const gameLabel = g.name + (d.type === '레퍼런스 기획' ? ' (레퍼런스)' : '');
+    if (documentMap.has(d.url)) documentMap.get(d.url).game += ' · ' + gameLabel;
+    else documentMap.set(d.url, {...d, game: gameLabel});
   }
-  const documents = [...documentMap.values()];
+  const documentRanks = new Map(documentOrder.map((url, index) => [url, index]));
+  const documents = [...documentMap.values()].sort((a, b) =>
+    (documentRanks.get(a.url) ?? Number.MAX_SAFE_INTEGER) - (documentRanks.get(b.url) ?? Number.MAX_SAFE_INTEGER));
   [...document.querySelectorAll('.hero-stats strong')].forEach((node, i) => {
     node.replaceChildren(document.createTextNode(String(i === 2 ? documents.length : counts[i])));
     const unit = document.createElement('span'); unit.textContent = i === 2 ? '편' : '개'; node.append(unit);
