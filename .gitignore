@@ -1,0 +1,14 @@
+# Local dependencies and temporary files
+node_modules/
+/.sites-runtime/
+/tmp/
+*.log
+
+# Deployment archives in the repository root
+/*.zip
+/*.tar.gz
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
